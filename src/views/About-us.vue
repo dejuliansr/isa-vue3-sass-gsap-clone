@@ -1,6 +1,7 @@
 <script>
 import DonateButton from '../components/DonateButton.vue';
 import HeroSection from '../components/HeroSection.vue';
+import MissionSection from '../components/MissionSection.vue';
 import OurProjects from '../components/ProjectSection.vue'
 import OurTeam from '../components/TeamSection.vue'
 import SupportersSection from '../components/SupportersSection.vue';
@@ -11,6 +12,7 @@ export default {
   components: {
     DonateButton,
     HeroSection,
+    MissionSection,
     OurProjects,
     OurTeam,
     SupportersSection,
@@ -23,6 +25,7 @@ export default {
   <div class="about-us">
     <DonateButton />
     <HeroSection />
+    <MissionSection />
     <OurProjects />
     <OurTeam />
     <SupportersSection />
