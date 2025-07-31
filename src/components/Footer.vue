@@ -1,6 +1,8 @@
-apakah program saya sudah menggunakan vue 3 option api
 <script>
-import { gsap } from 'gsap'
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'FooterSection',
@@ -8,22 +10,30 @@ export default {
   data() {
     return {
       animalsRef: null,
-      emailRef: null
-    }
+      emailRef: null,
+    };
   },
 
- mounted() {
-  this.animalsRef = this.$refs.animalsRef
+  mounted() {
+    this.animalsRef = this.$refs.animalsRef;
 
-  gsap.from(this.animalsRef, {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-  })
-}
-
-}
+    gsap.fromTo(
+      this.animalsRef,
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: this.animalsRef,
+          start: 'top 90%',
+          toggleActions: 'restart none restart none',
+        },
+      }
+    );
+  },
+};
 </script>
 
 <template>
@@ -32,7 +42,9 @@ export default {
       <div class="footer-left">
         <h2>Contact us</h2>
         <p>Kyiv, Ukraine</p>
-        <a ref="emailRef" href="mailto:mail@isa.co.ua">mail@isa.co.ua</a>
+        <a ref="emailRef" href="mailto:mail@isa.co.ua"
+          >mail@isa.co.ua</a
+        >
         <div class="footer-icons">
           <a
             href="https://www.youtube.com/channel/UCflad3HMzVzumevfDEqJFFQ/featured"

@@ -1,9 +1,8 @@
 <script>
-import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
   name: 'SupportersSection',
@@ -124,34 +123,43 @@ export default {
           ).href,
         },
       ],
-    }
+    };
   },
 
   mounted() {
-    const supportersEls = this.$refs.supportersRefs
-    const sectionEl = this.$refs.sectionRef
+    const supporterEls = this.$refs.supportersRefs;
+    const sectionEl = this.$refs.sectionRef;
+    const elements = Array.isArray(supporterEls)
+      ? supporterEls
+      : [supporterEls];
 
-    const elements = Array.isArray(supportersEls) ? supportersEls : [supportersEls]
-
-    gsap.from(elements, {
-      y: 50,
-      opacity: 0,
-      stagger: 0.2,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: sectionEl,
-        start: 'top 80%',
-      },
-    })
+    elements.forEach((el, index) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 100%',
+            toggleActions: 'restart none restart none',
+          },
+        }
+      );
+    });
   },
-}
+};
 </script>
 
 <template>
   <section class="supporters-section" ref="sectionRef">
     <div class="container">
-      <h2 class="supporters-title">Socially active citizens</h2>
+      <h2 class="supporters-title">
+        Socially active citizens
+      </h2>
       <p class="supporters-desc">support us</p>
 
       <div class="supporters-grid">
@@ -167,7 +175,9 @@ export default {
             class="supporter-image"
           />
           <p class="supporter-name">{{ supporter.name }}</p>
-          <p class="supporter-role">{{ supporter.title }}</p>
+          <p class="supporter-role">
+            {{ supporter.title }}
+          </p>
         </div>
       </div>
     </div>

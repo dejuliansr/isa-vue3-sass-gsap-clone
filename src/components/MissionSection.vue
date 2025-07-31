@@ -25,7 +25,7 @@ export default {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: videoSection,
-        start: 'top 80%',
+        start: 'top 100%',
       },
     })
 
@@ -36,7 +36,7 @@ export default {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: videoSection,
-        start: 'top 80%',
+        start: 'top 100%',
         toggleActions: 'restart none restart none',
       },
     })
