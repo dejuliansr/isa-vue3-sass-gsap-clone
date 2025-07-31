@@ -1,35 +1,39 @@
-<script setup>
-import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+<script>
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-// Register plugin
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
-const sponsorsRef = ref(null);
+export default {
+  name: 'PartnerSection',
 
-const logos = [
-  '/src/assets/images/advires.jpg',
-  '/src/assets/images/ovidwind.png',
-  '/src/assets/images/tbsindustry.png',
-  '/src/assets/images/accurl.png',
-  '/src/assets/images/laudis.png',
-  '/src/assets/images/kickbite.png',
-];
+  data() {
+    return {
+      logos: [
+        '/src/assets/images/advires.jpg',
+        '/src/assets/images/ovidwind.png',
+        '/src/assets/images/tbsindustry.png',
+        '/src/assets/images/accurl.png',
+        '/src/assets/images/laudis.png',
+        '/src/assets/images/kickbite.png',
+      ],
+    }
+  },
 
-onMounted(() => {
-  gsap.from('.logo', {
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: sponsorsRef.value,
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-  });
-});
+  mounted() {
+    gsap.from('.logo', {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: this.$refs.partnerSection,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+    })
+  },
+}
 </script>
 
 <template>

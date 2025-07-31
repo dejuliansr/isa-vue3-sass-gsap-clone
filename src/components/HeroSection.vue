@@ -1,75 +1,90 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+<script>
+import { ref } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
-const dogImages = [
-  new URL('../assets/images/dog-1.svg', import.meta.url).href,
-  new URL('../assets/images/dog-2.svg', import.meta.url).href,
-];
+export default {
+  name: 'HeroSection',
 
-const currentDogImage = ref(dogImages[0]);
+  data() {
+    return {
+      dogImages: [
+        new URL('../assets/images/dog-1.svg', import.meta.url).href,
+        new URL('../assets/images/dog-2.svg', import.meta.url).href,
+      ],
+      currentDogImage: null,
+      intervalId: null,
+    }
+  },
 
-onMounted(() => {
-  const animateHero = () => {
-    gsap.from('.dog-icon', {
-      opacity: 0,
-      y: -50,
-      duration: 1,
-      ease: 'power2.out',
-    });
+  mounted() {
+    this.currentDogImage = this.dogImages[0]
 
-    gsap.from('.heading-text', {
-      opacity: 0,
-      x: 50,
-      duration: 1,
-      ease: 'power2.out',
-    });
+    const animateHero = () => {
+      gsap.from('.dog-icon', {
+        opacity: 0,
+        y: -50,
+        duration: 1,
+        ease: 'power2.out',
+      })
 
-    gsap.from(['.subtitle', '.social-icons'], {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: 'power2.out',
-      stagger: 0.2,
-    });
-  };
+      gsap.from('.heading-text', {
+        opacity: 0,
+        x: 50,
+        duration: 1,
+        ease: 'power2.out',
+      })
 
-  ScrollTrigger.create({
-    trigger: '.hero-section',
-    start: 'top 80%',
-    onEnter: () => animateHero(),
-    onEnterBack: () => animateHero(),
-    once: true,
-  });
+      gsap.from(['.subtitle', '.social-icons'], {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: 'power2.out',
+        stagger: 0.2,
+      })
+    }
 
-  let index = 0;
-  setInterval(() => {
-    gsap.to('.dog-icon', {
-      opacity: 0,
-      y: 50,
-      duration: 0.5,
-      ease: 'power1.in',
-      onComplete: () => {
-        index = (index + 1) % dogImages.length;
-        currentDogImage.value = dogImages[index];
+    ScrollTrigger.create({
+      trigger: '.hero-section',
+      start: 'top 80%',
+      onEnter: () => animateHero(),
+      onEnterBack: () => animateHero(),
+      once: true,
+    })
 
-        gsap.fromTo(
-          '.dog-icon',
-          { opacity: 0, y: -50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-          }
-        );
-      },
-    });
-  }, 4000);
-});
+    let index = 0
+    this.intervalId = setInterval(() => {
+      gsap.to('.dog-icon', {
+        opacity: 0,
+        y: 50,
+        duration: 0.5,
+        ease: 'power1.in',
+        onComplete: () => {
+          index = (index + 1) % this.dogImages.length
+          this.currentDogImage = this.dogImages[index]
+
+          gsap.fromTo(
+            '.dog-icon',
+            { opacity: 0, y: -50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: 'power2.out',
+            }
+          )
+        },
+      })
+    }, 4000)
+  },
+
+  beforeUnmount() {
+    // Bersihkan interval saat komponen dibuang
+    clearInterval(this.intervalId)
+  },
+}
 </script>
 
 <template>
