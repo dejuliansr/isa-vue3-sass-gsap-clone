@@ -3,6 +3,7 @@ import DonateButton from '../components/DonateButton.vue';
 import HeroSection from '../components/HeroSection.vue';
 import OurProjects from '../components/ProjectSection.vue'
 import OurTeam from '../components/TeamSection.vue'
+import SupportersSection from '../components/SupportersSection.vue';
 import OurPartners from '../components/OurPartners.vue';
 
 export default {
@@ -12,6 +13,7 @@ export default {
     HeroSection,
     OurProjects,
     OurTeam,
+    SupportersSection,
     OurPartners
   },
 };
@@ -23,6 +25,7 @@ export default {
     <HeroSection />
     <OurProjects />
     <OurTeam />
+    <SupportersSection />
     <OurPartners />
   </div>
 </template>
