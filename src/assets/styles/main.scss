@@ -18,10 +18,10 @@ $font-title-base: 1.7rem;
 $font-title-md: 2rem;
 $font-title-lg: 3rem;
 $font-title-xl: 4rem;
-$font-subtitle-base: 0.8rem;   // default
-$font-subtitle-md: 1.25rem;    // ≥768px
-$font-subtitle-lg: 1.6rem;     // ≥1024px
-$font-subtitle-xl: 2rem;       // ≥1284px
+$font-subtitle-base: 0.8rem;
+$font-subtitle-md: 1.25rem;
+$font-subtitle-lg: 1.6rem;
+$font-subtitle-xl: 2rem;
 
 // layout
 $container-width: 1190px;
@@ -173,6 +173,132 @@ $padding-right: clamp(2rem, 7vw, 5rem);
       }
     }
   }
+}
+
+// MISSION SECTION
+.mission-section {
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+
+    @media (min-width: 1284px) {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+
+  .container {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+
+  .identity-title, .goal-title {
+    font-size: $font-title-base;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: $font-spacing;
+
+    @media (min-width: 768px) {
+      font-size: $font-title-md;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: $font-title-lg;
+    }
+
+    @media (min-width: 1284px) {
+      font-size: $font-title-xl;
+    }
+  }
+
+  .identity-desc, .goal-desc {
+    font-size: 0.9rem;
+    font-weight: 100;
+    line-height: 1.4rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.3rem;
+      line-height: 1.6rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.6rem;
+      line-height: 2rem;
+    }
+
+    @media (min-width: 1284px) {
+      font-size: 2.4rem;
+      line-height: 3.4rem;
+    }
+  }
+
+  .goals {
+    margin-top: 1rem;
+  }
+
+  .line-wrapper {
+    padding: 1rem 1rem;
+    
+    @media (min-width: 768px) {
+      padding: 1.5rem 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 2rem 5rem;
+    }
+    
+    .line {
+      border-left: 3px solid #ff97d0;
+      padding: 0.5rem 0.5rem;
+
+      @media (min-width: 768px) {
+        padding: 1.2rem 1rem;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+      }
+
+      @media (min-width: 1024px) {
+        padding: 1.4rem 1rem;
+        font-size: 1.6rem;
+        line-height: 2rem;
+      }
+
+      @media (min-width: 1284px) {
+        padding: 2rem 1rem;
+        font-size: 2.4rem;
+        line-height: 3.4rem;
+      }
+    }
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
 }
 
 // OUR POJECTS SECTION
