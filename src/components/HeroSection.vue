@@ -42,7 +42,7 @@ onMounted(() => {
     start: 'top 80%',
     onEnter: () => animateHero(),
     onEnterBack: () => animateHero(),
-    once: false,
+    once: true,
   });
 
   let index = 0;
