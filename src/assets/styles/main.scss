@@ -14,9 +14,17 @@ $transition-2: 1s ease;
 
 // font
 $font-spacing: 0.1rem;
+$font-title-base: 1.5rem;
+$font-title-md: 2rem;
+$font-title-lg: 3rem;
+$font-title-xl: 4rem;
+$font-subtitle-base: 0.8rem;   // default
+$font-subtitle-md: 1.25rem;    // ≥768px
+$font-subtitle-lg: 1.6rem;     // ≥1024px
+$font-subtitle-xl: 2rem;       // ≥1284px
 
 // layout
-$container-width: 1280px;
+$container-width: 1190px;
 $padding-left: clamp(2rem, 7vw, 5rem);
 $padding-right: clamp(2rem, 7vw, 5rem);
 
@@ -104,7 +112,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
         }
 
         @media (min-width: 1024px) {
-          font-size: 3rem;
+          font-size: 2rem;
         }
 
         @media (min-width: 1284px) {
@@ -167,6 +175,136 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   }
 }
 
+// OUR POJECTS SECTION
+.project-section {
+  background-color: $blue;
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+
+    @media (min-width: 1284px) {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+
+  .container {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: $font-title-base;
+    color: $white;
+    margin-bottom: 0.5rem;
+    letter-spacing: $font-spacing;
+
+    @media (min-width: 768px) {
+      font-size: $font-title-md;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: $font-title-lg;
+    }
+
+    @media (min-width: 1284px) {
+      font-size: $font-title-xl;
+    }
+  }
+
+  .section-desc {
+    color: $white;
+    font-size: $font-subtitle-base;
+    margin-bottom: 3rem;
+    color: $white;
+    letter-spacing: $font-spacing;
+
+    @media (min-width: 768px) {
+      font-size: $font-subtitle-md;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: $font-subtitle-lg;
+    }
+
+    @media (min-width: 1284px) {
+      font-size: $font-subtitle-xl;
+    }
+  }
+}
+
+.project-card {
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 1.8rem 2.7rem;
+  border: 2px solid white;
+  text-align: left;
+
+  @media (min-width: 768px) {
+    padding: 3.5rem 3.5rem;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+
+      @media (min-width: 768px) {
+        font-size: 1.8rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 2rem;
+      }
+
+      @media (min-width: 1284px) {
+        font-size: 2.8rem;
+      }
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    margin-top: 0.7rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.3rem;
+    }
+
+    @media (min-width: 1284px) {
+      font-size: 1.9rem;
+    }
+  }
+
+  &.black {
+    background-color: $black;
+    color: $white;
+  }
+
+  &.green {
+    background-color: $green;
+    color: $white;
+  }
+
+  &.pink {
+    background-color: $plum;
+    color: $white;
+  }
+}
+
+
 // OUR PARTNERS SECTION
 .partner-section {
   padding-left: $padding-left;
@@ -196,40 +334,40 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: $font-title-base;
     font-weight: bold;
     margin-bottom: 0.5rem;
     letter-spacing: $font-spacing;
 
     @media (min-width: 768px) {
-      font-size: 2rem;
+      font-size: $font-title-md;
     }
 
     @media (min-width: 1024px) {
-      font-size: 3rem;
+      font-size: $font-title-lg;
     }
 
     @media (min-width: 1284px) {
-     font-size: 4rem; 
+      font-size: $font-title-xl;
     }
   }
 
   .subtitle {
-    font-size: 0.8rem;
+    font-size: $font-subtitle-base;
     margin-bottom: 3rem;
     color: $black;
     letter-spacing: $font-spacing;
 
     @media (min-width: 768px) {
-      font-size: 1.25rem;
+      font-size: $font-subtitle-md;
     }
 
     @media (min-width: 1024px) {
-      font-size: 1.6rem;
+      font-size: $font-subtitle-lg;
     }
 
     @media (min-width: 1284px) {
-     font-size: 2rem;
+      font-size: $font-subtitle-xl;
     }
   }
 
@@ -241,7 +379,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
     @media (min-width: 1024px) {
       justify-content: start;
-      gap: 5rem;
+      gap: 3.5rem;
     }
 
     .logo {
