@@ -935,3 +935,128 @@ $padding-right: clamp(2rem, 7vw, 5rem);
     }
   }
 }
+
+// FOOTER
+.footer-section {
+  background-color: $green;
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+   @media (min-width: 768px) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+
+    @media (min-width: 1284px) {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
+
+  .container {
+    width: 100%;
+    max-width: $container-width;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .footer-left {
+    flex: 1 1 300px;
+    max-width: 500px;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+
+      @media (min-width: 1024px) {
+        font-size: 3rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 4rem;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+
+      @media (min-width: 1024px) {
+        font-size: 1.7rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 2.4rem;
+      }
+    }
+
+    a {
+      display: inline-block;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: $black;
+      transition: transform 0.3s;
+
+          &:hover {
+            transform: scale(0.8);
+          }
+
+      @media (min-width: 1024px) {
+        font-size: 1.7rem;
+      }
+
+      @media (min-width: 1024px) {
+        font-size: 2.4rem;
+      }
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+
+      img {
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+
+      @media (min-width: 1024px) {
+        width: 48px;
+        height: 48px;
+      }
+      }
+    }
+  }
+
+  .footer-right {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    text-align: center;
+
+    .social-icons {
+      justify-content: center;
+    }
+  }
+}
