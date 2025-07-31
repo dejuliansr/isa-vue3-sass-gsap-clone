@@ -5,19 +5,18 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const supportersRefs = ref([])
-const sectionRef = ref(null)
+const videoSectionRef = ref([])
 const videoWrapperRef = ref(null)
 
 onMounted(() => {
-  gsap.from(supportersRefs.value, {
+  gsap.from(videoSectionRef.value, {
     y: 50,
     opacity: 0,
     stagger: 0.2,
     duration: 1,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: sectionRef.value,
+      trigger: videoSectionRef.value,
       start: 'top 80%',
     },
   })
@@ -28,7 +27,7 @@ onMounted(() => {
     duration: 1,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: sectionRef.value,
+      trigger: videoSectionRef.value,
       start: 'top 80%',
       toggleActions: 'restart none restart none',
     },
@@ -81,7 +80,7 @@ onMounted(() => {
         </p>
       </div>
 
-      <div ref="sectionRef">
+      <div ref="videoSectionRef">
         <div ref="videoWrapperRef" class="video-wrapper">
           <iframe
             width="100%"
