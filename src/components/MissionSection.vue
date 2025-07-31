@@ -1,40 +1,48 @@
-<script setup>
-import { ref, onMounted } from 'vue'
+<script>
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const videoSectionRef = ref([])
-const videoWrapperRef = ref(null)
+export default {
+  name: 'MissionSection',
 
-onMounted(() => {
-  gsap.from(videoSectionRef.value, {
-    y: 50,
-    opacity: 0,
-    stagger: 0.2,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: videoSectionRef.value,
-      start: 'top 80%',
-    },
-  })
+  data() {
+    return {
+     
+    }
+  },
 
-  gsap.from(videoWrapperRef.value, {
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: videoSectionRef.value,
-      start: 'top 80%',
-      toggleActions: 'restart none restart none',
-    },
-  })
-})
+  mounted() {
+    const videoSection = this.$refs.videoSectionRef
+    const videoWrapper = this.$refs.videoWrapperRef
+
+    gsap.from(videoSection, {
+      y: 50,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: videoSection,
+        start: 'top 80%',
+      },
+    })
+
+    gsap.from(videoWrapper, {
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: videoSection,
+        start: 'top 80%',
+        toggleActions: 'restart none restart none',
+      },
+    })
+  },
+}
 </script>
-
 
 <template>
   <section class="mission-section">

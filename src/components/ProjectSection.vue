@@ -1,71 +1,85 @@
-<script setup>
-import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
+<script>
+import gsap from 'gsap'
 
-const card1 = ref(null);
-const card2 = ref(null);
-const card3 = ref(null);
+export default {
+  name: 'ProjectSection',
 
-function addCardHoverEffect(cardEl) {
-  let shadowColor = 'white';
+  data() {
+    return {
+      card1: null,
+      card2: null,
+      card3: null,
+    }
+  },
 
-  if (cardEl.classList.contains('black')) {
-    shadowColor = '#000';
-  } else if (cardEl.classList.contains('green')) {
-    shadowColor = '#31be32';
-  } else if (cardEl.classList.contains('pink')) {
-    shadowColor = '#ff97d0';
-  }
+  methods: {
+    addCardHoverEffect(cardEl) {
+      let shadowColor = 'white'
 
-  cardEl.addEventListener('mouseenter', () => {
-    gsap.to(cardEl, {
-      x: 10,
-      y: -10,
-      duration: 0.3,
+      if (cardEl.classList.contains('black')) {
+        shadowColor = '#000'
+      } else if (cardEl.classList.contains('green')) {
+        shadowColor = '#31be32'
+      } else if (cardEl.classList.contains('pink')) {
+        shadowColor = '#ff97d0'
+      }
+
+      cardEl.addEventListener('mouseenter', () => {
+        gsap.to(cardEl, {
+          x: 10,
+          y: -10,
+          duration: 0.3,
+          ease: 'power2.out',
+          boxShadow: `-4px 4px 0 ${shadowColor}`,
+        })
+      })
+
+      cardEl.addEventListener('mouseleave', () => {
+        gsap.to(cardEl, {
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+          boxShadow: '0px 0px 0 transparent',
+        })
+      })
+    },
+  },
+
+  mounted() {
+    // ambil elemen lewat this.$refs
+    const card1 = this.$refs.card1
+    const card2 = this.$refs.card2
+    const card3 = this.$refs.card3
+
+    gsap.from(card1, {
+      x: -100,
+      opacity: 0,
+      duration: 1,
       ease: 'power2.out',
-      boxShadow: `-4px 4px 0 ${shadowColor}`,
-    });
-  });
+    })
 
-  cardEl.addEventListener('mouseleave', () => {
-    gsap.to(cardEl, {
-      x: 0,
-      y: 0,
-      duration: 0.3,
+    gsap.from(card2, {
+      x: -100,
+      opacity: 0,
+      duration: 1,
       ease: 'power2.out',
-      boxShadow: '0px 0px 0 transparent',
-    });
-  });
+      delay: 0.5,
+    })
+
+    gsap.from(card3, {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      ease: 'power2.out',
+      delay: 1,
+    })
+
+    this.addCardHoverEffect(card1)
+    this.addCardHoverEffect(card2)
+    this.addCardHoverEffect(card3)
+  },
 }
-
-onMounted(() => {
-  gsap.from(card1.value, {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-  });
-
-  gsap.from(card2.value, {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    delay: 0.5,
-  });
-
-  gsap.from(card3.value, {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power2.out',
-    delay: 1,
-  });
-
-  addCardHoverEffect(card1.value);
-  addCardHoverEffect(card2.value);
-  addCardHoverEffect(card3.value);
-});
 </script>
 
 <template>

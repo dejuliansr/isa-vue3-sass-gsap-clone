@@ -1,18 +1,29 @@
-<script setup>
-import { onMounted, ref } from 'vue'
+apakah program saya sudah menggunakan vue 3 option api
+<script>
 import { gsap } from 'gsap'
 
-const animalsRef = ref(null)
-const emailRef = ref(null)
-onMounted(() => {
-  gsap.from(animalsRef.value, {
+export default {
+  name: 'FooterSection',
+
+  data() {
+    return {
+      animalsRef: null,
+      emailRef: null
+    }
+  },
+
+ mounted() {
+  this.animalsRef = this.$refs.animalsRef
+
+  gsap.from(this.animalsRef, {
     y: 100,
     opacity: 0,
     duration: 1,
     ease: 'power3.out'
   })
+}
 
-})
+}
 </script>
 
 <template>
