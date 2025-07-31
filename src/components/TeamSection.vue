@@ -69,7 +69,6 @@ const teamRefs = ref([])
 const sectionRef = ref(null)
 
 onMounted(() => {
-  // Animasi masuk saat scroll
   gsap.from(teamRefs.value, {
     y: 50,
     opacity: 0,
@@ -82,7 +81,6 @@ onMounted(() => {
     },
   })
 
-  // Hover effects: mengecil + shadow kuning
   teamRefs.value.forEach((el) => {
     el.addEventListener('mouseenter', () => {
       gsap.to(el, {
