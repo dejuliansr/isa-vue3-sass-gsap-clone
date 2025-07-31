@@ -1,6 +1,8 @@
 <script>
-import gsap from 'gsap'
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
 export default {
   name: 'ProjectSection',
 
@@ -9,19 +11,19 @@ export default {
       card1: null,
       card2: null,
       card3: null,
-    }
+    };
   },
 
   methods: {
     addCardHoverEffect(cardEl) {
-      let shadowColor = 'white'
+      let shadowColor = 'white';
 
       if (cardEl.classList.contains('black')) {
-        shadowColor = '#000'
+        shadowColor = '#000';
       } else if (cardEl.classList.contains('green')) {
-        shadowColor = '#31be32'
+        shadowColor = '#31be32';
       } else if (cardEl.classList.contains('pink')) {
-        shadowColor = '#ff97d0'
+        shadowColor = '#ff97d0';
       }
 
       cardEl.addEventListener('mouseenter', () => {
@@ -31,8 +33,8 @@ export default {
           duration: 0.3,
           ease: 'power2.out',
           boxShadow: `-4px 4px 0 ${shadowColor}`,
-        })
-      })
+        });
+      });
 
       cardEl.addEventListener('mouseleave', () => {
         gsap.to(cardEl, {
@@ -41,45 +43,44 @@ export default {
           duration: 0.3,
           ease: 'power2.out',
           boxShadow: '0px 0px 0 transparent',
-        })
-      })
+        });
+      });
     },
   },
 
   mounted() {
-    // ambil elemen lewat this.$refs
-    const card1 = this.$refs.card1
-    const card2 = this.$refs.card2
-    const card3 = this.$refs.card3
+    const card1 = this.$refs.card1;
+    const card2 = this.$refs.card2;
+    const card3 = this.$refs.card3;
 
-    gsap.from(card1, {
-      x: -100,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-    })
+    const animateCard = (el, delay = 0) => {
+      gsap.fromTo(
+        el,
+        { x: -100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          delay,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 100%',
+            toggleActions: 'restart none restart none',
+          },
+        }
+      );
+    };
 
-    gsap.from(card2, {
-      x: -100,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-      delay: 0.5,
-    })
+    animateCard(card1);
+    animateCard(card2, 0.2);
+    animateCard(card3, 0.4);
 
-    gsap.from(card3, {
-      x: -100,
-      opacity: 0,
-      duration: 1,
-      ease: 'power2.out',
-      delay: 1,
-    })
-
-    this.addCardHoverEffect(card1)
-    this.addCardHoverEffect(card2)
-    this.addCardHoverEffect(card3)
+    this.addCardHoverEffect(card1);
+    this.addCardHoverEffect(card2);
+    this.addCardHoverEffect(card3);
   },
-}
+};
 </script>
 
 <template>

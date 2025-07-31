@@ -1,6 +1,9 @@
 <script>
 import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import arrowIcon from '../assets/images/arrow.png'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   name: 'HelpingSection',
@@ -48,15 +51,24 @@ export default {
     const button = this.$refs.buttonRef
     const arrow = this.$refs.arrowRef
 
-    gsap.from(cards, {
-      y: 50,
-      opacity: 0,
-      stagger: 0.1,
-      duration: 0.6,
-      ease: 'power2.out',
-    })
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out',
 
-    cards.forEach((card) => {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 100%',
+            toggleActions: 'restart none restart none',
+          },
+        }
+      )
+
       card.addEventListener('mouseenter', () => {
         gsap.to(card, {
           x: 10,
@@ -78,13 +90,21 @@ export default {
       })
     })
 
-    gsap.from(button, {
-      x: -100,
-      opacity: 0,
-      duration: 0.8,
-      delay: 0.3,
-      ease: 'power2.out',
-    })
+    gsap.fromTo(
+      button,
+      { x: -100, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: button,
+          start: 'top 90%',
+          toggleActions: 'restart none restart none',
+        },
+      }
+    )
 
     button.addEventListener('mouseenter', () => {
       gsap.to(arrow, {
