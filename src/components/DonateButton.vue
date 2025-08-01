@@ -1,9 +1,18 @@
 <script>
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
+import iconImage from '@/assets/images/webflow-badge-icon.svg'
+import iconText from '@/assets/images/webflow-badge-text.svg'
 
 export default {
   name: 'DonateButton',
+  data() {
+    return {
+      iconImage,
+      iconText
+    };
+  },
+
   setup() {
     const donateButton = ref(null);
 
@@ -49,5 +58,24 @@ export default {
 </script>
 
 <template>
-  <button ref="donateButton" class="donate-button">donate</button>
+  <button ref="donateButton" class="donate-button">
+    donate
+  </button>
+  <a
+    class="btn"
+    href="https://webflow.com/?utm_campaign=brandjs"
+    target="_blank"
+    rel="noopener"
+  >
+    <img
+      :src="iconImage"
+      alt="Icon 1"
+      class="icon-image"
+    />
+    <img
+      :src="iconText"
+      alt="Icon 2"
+      class="icon-text"
+    />
+  </a>
 </template>

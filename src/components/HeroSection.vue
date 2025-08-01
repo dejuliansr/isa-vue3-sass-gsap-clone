@@ -1,6 +1,11 @@
 <script>
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import youtube from '@/assets/images/youtube.svg';
+import instagram from '@/assets/images/instagram.svg';
+import facebook from '@/assets/images/facebook.svg';
+import patreon from '@/assets/images/patreon.svg';
+import telegram from '@/assets/images/telegram.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +24,11 @@ export default {
           import.meta.url
         ).href,
       ],
+      youtube,
+      instagram,
+      facebook,
+      patreon,
+      telegram,
       currentDogImage: null,
       intervalId: null,
     };
@@ -61,14 +71,13 @@ export default {
       );
 
       gsap.fromTo(
-        ['.subtitle', '.social-icons'],
+        ['.social-desc', '.social-icons'],
         { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
           duration: 1,
           ease: 'power2.out',
-          stagger: 0.2,
           scrollTrigger: {
             trigger: '.hero-section',
             start: 'top 100%',
@@ -133,57 +142,42 @@ export default {
       </div>
 
       <div class="bottom-row">
-        <p class="subtitle">charity organization</p>
+        <p class="social-desc">charity organization</p>
         <div class="social-icons">
           <a
             href="https://www.youtube.com/channel/UCflad3HMzVzumevfDEqJFFQ/featured"
             target="_blank"
             rel="noopener"
           >
-            <img
-              src="../assets/images/youtube.svg"
-              alt="YouTube"
-            />
+            <img :src="youtube" alt="YouTube" />
           </a>
           <a
             href="https://www.instagram.com/isa.official.ua/"
             target="_blank"
             rel="noopener"
           >
-            <img
-              src="../assets/images/instagram.svg"
-              alt="Instagram"
-            />
+            <img :src="instagram" alt="Instagram" />
           </a>
           <a
             href="https://www.facebook.com/isa.co.ua"
             target="_blank"
             rel="noopener"
           >
-            <img
-              src="../assets/images/facebook.svg"
-              alt="Facebook"
-            />
+            <img :src="facebook" alt="Facebook" />
           </a>
           <a
             href="https://www.patreon.com/isa_co_ua"
             target="_blank"
             rel="noopener"
           >
-            <img
-              src="../assets/images/patreon.svg"
-              alt="Patreon"
-            />
+            <img :src="patreon" alt="Patreon" />
           </a>
           <a
             href="https://t.me/isa_co_ua"
             target="_blank"
             rel="noopener"
           >
-            <img
-              src="../assets/images/telegram.svg"
-              alt="Telegram"
-            />
+            <img :src="telegram" alt="Telegram" />
           </a>
         </div>
       </div>

@@ -46,18 +46,18 @@ export default {
 <template>
   <section class="partner-section">
     <div class="container">
-      <h2 class="title">Our partners</h2>
-      <p class="subtitle">
+      <h2 class="partner-title">Our partners</h2>
+      <p class="partner-desc">
         take care of our fund and help us with many
         questions
       </p>
-      <div class="logos" ref="partnerRef">
+      <div class="partner-wrapper" ref="partnerRef">
         <img
           v-for="(logo, index) in logos"
           :key="index"
           :src="logo"
           alt="partner logo"
-          class="logo"
+          class="partner-logo"
         />
       </div>
     </div>
