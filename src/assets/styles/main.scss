@@ -24,10 +24,11 @@ $font-subtitle-lg: 1.6rem;
 $font-subtitle-xl: 2rem;
 
 // layout
-$container-width: 1190px;
+$container-width: 1240px;
 $padding-left: clamp(2rem, 7vw, 5rem);
 $padding-right: clamp(2rem, 7vw, 5rem);
 
+// DEFAULT
 *, *::before, *::after {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -35,10 +36,24 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   box-sizing: border-box;
 }
 
+.mission-section, .project-section, .helping-section, .team-section,
+.supporters-section, .partner-section, .footer-section {
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
 .donate-button {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: 1.2rem;
+  right: 1.2rem;
   background: $white;
   border: 3px solid $black;
   padding: 0.3rem 0.4rem;
@@ -48,7 +63,6 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   
   @media (min-width: 768px) {
     font-size: 1.2rem;
-    padding: 0.4rem 0.6rem;
   }
 
   @media (min-width: 1024px) {
@@ -57,6 +71,32 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
   @media (min-width: 1284px) {
     font-size: 2rem;
+  }
+}
+
+.btn {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  background: white;
+  padding: 0.4rem;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .icon-image {
+  width: 26px;
+  height: 12px;
+  }
+
+  .icon-text {
+    width: 118px;
+    height: 12px;
   }
 }
 
@@ -86,11 +126,11 @@ $padding-right: clamp(2rem, 7vw, 5rem);
         width: 100px;
 
          @media (min-width: 768px) {
-          width: 100px;
+          width: 146px;
         }
 
         @media (min-width: 1024px) {
-          width: 150px;
+          width: 160px;
         }
 
         @media (min-width: 1284px) {
@@ -99,7 +139,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
       }
 
       .heading-text {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         margin: 0;
         width: 150px;
@@ -107,12 +147,12 @@ $padding-right: clamp(2rem, 7vw, 5rem);
         letter-spacing: $font-spacing;        
         
         @media (min-width: 768px) {
-          font-size: 2.4rem;
-          width: 300px;
+          font-size: 2.7rem;
+          width: 270px;
         }
 
         @media (min-width: 1024px) {
-          font-size: 2rem;
+          font-size: 3rem;
         }
 
         @media (min-width: 1284px) {
@@ -127,7 +167,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
       flex-direction: column;
       align-items: center;
 
-      .subtitle {
+      .social-desc {
         font-size: 1.2rem;
         margin-bottom: 1rem;
         letter-spacing: $font-spacing;
@@ -177,30 +217,19 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
 // MISSION SECTION
 .mission-section {
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  @media (min-width: 768px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-    @media (min-width: 768px) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+  @media (min-width: 1024px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 
-    @media (min-width: 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-
-    @media (min-width: 1284px) {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-
-  .container {
-    width: 100%;
-    max-width: $container-width;
-    margin: 0 auto;
+  @media (min-width: 1284px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   .identity-title, .goal-title {
@@ -304,30 +333,20 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 // OUR POJECTS SECTION
 .project-section {
   background-color: $blue;
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 
-    @media (min-width: 768px) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+  @media (min-width: 768px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-    @media (min-width: 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
+  @media (min-width: 1024px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 
-    @media (min-width: 1284px) {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-
-  .container {
-    width: 100%;
-    max-width: $container-width;
-    margin: 0 auto;
+  @media (min-width: 1284px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   .section-title {
@@ -376,6 +395,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   padding: 1.8rem 2.7rem;
   border: 2px solid white;
   text-align: left;
+  cursor: pointer;
 
   @media (min-width: 768px) {
     padding: 3.5rem 3.5rem;
@@ -433,10 +453,6 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 // HELPING SECTION
 .helping-section {
   background-color: $yellow;
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 
   @media (min-width: 768px) {
       padding-top: 4rem;
@@ -452,12 +468,6 @@ $padding-right: clamp(2rem, 7vw, 5rem);
       padding-top: 8rem;
       padding-bottom: 8rem;
     }
-
-  .container {
-    width: 100%;
-    max-width: $container-width;
-    margin: 0 auto;
-  }
 
   .helping-title {
     font-size: $font-title-base;
@@ -576,30 +586,19 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
 // OUR TEAMS SECTION
 .team-section {
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  @media (min-width: 768px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-    @media (min-width: 768px) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+  @media (min-width: 1024px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 
-    @media (min-width: 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-
-    @media (min-width: 1284px) {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-
-  .container {
-    width: 100%;
-    max-width: $container-width;
-    margin: 0 auto;
+  @media (min-width: 1284px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   .team-title {
@@ -642,7 +641,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 3rem;
+    gap: 2rem;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -654,6 +653,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
     @media (min-width: 1284px) {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.4rem;
     }
   }
 
@@ -714,30 +714,20 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 // SUPPORTERS SECTION
 .supporters-section {
   background-color: $plum;
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 
-    @media (min-width: 768px) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+  @media (min-width: 768px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-    @media (min-width: 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
+  @media (min-width: 1024px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 
-    @media (min-width: 1284px) {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-
-    .container {
-    width: 100%;
-    max-width: $container-width;
-    margin: 0 auto;
+  @media (min-width: 1284px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   .supporters-title {
@@ -780,7 +770,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
   .supporters-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 3rem;
+    gap: 2rem;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -792,6 +782,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
     @media (min-width: 1284px) {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.4rem;
     }
   }
 
@@ -835,33 +826,22 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 
 // OUR PARTNERS SECTION
 .partner-section {
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
-    @media (min-width: 768px) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-
-    @media (min-width: 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-
-    @media (min-width: 1284px) {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-
-  .container {
-    width: 100%;
-    max-width: $container-width;
-    margin: 0 auto;
+  @media (min-width: 768px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
-  .title {
+  @media (min-width: 1024px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (min-width: 1284px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .partner-title {
     font-size: $font-title-base;
     font-weight: bold;
     margin-bottom: 0.5rem;
@@ -880,7 +860,7 @@ $padding-right: clamp(2rem, 7vw, 5rem);
     }
   }
 
-  .subtitle {
+  .partner-desc {
     font-size: $font-subtitle-base;
     margin-bottom: 3rem;
     color: $black;
@@ -899,18 +879,19 @@ $padding-right: clamp(2rem, 7vw, 5rem);
     }
   }
 
-  .logos {
+  .partner-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    line-height: 2rem;
 
     @media (min-width: 1024px) {
       justify-content: start;
       gap: 3.5rem;
     }
 
-    .logo {
+    .partner-logo {
       height: 53px;
       width: 135px;
       object-fit: contain;
@@ -939,25 +920,21 @@ $padding-right: clamp(2rem, 7vw, 5rem);
 // FOOTER
 .footer-section {
   background-color: $green;
-  padding-left: $padding-left;
-  padding-right: $padding-right;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 
-   @media (min-width: 768px) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
+  @media (min-width: 768px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 
-    @media (min-width: 1024px) {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
+  @media (min-width: 1024px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 
-    @media (min-width: 1284px) {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
+  @media (min-width: 1284px) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
 
   .container {
     width: 100%;
