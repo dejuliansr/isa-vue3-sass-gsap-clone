@@ -10,12 +10,30 @@ export default {
   data() {
     return {
       logos: [
-        '../src/assets/images/advires.jpg',
-        '../src/assets/images/ovidwind.png',
-        '../src/assets/images/tbsindustry.png',
-        '../src/assets/images/accurl.png',
-        '../src/assets/images/laudis.png',
-        '../src/assets/images/kickbite.png',
+        new URL(
+          '../assets/images/advires.jpg',
+          import.meta.url
+        ).href,
+        new URL(
+          '../assets/images/ovidwind.png',
+          import.meta.url
+        ).href,
+        new URL(
+          '../assets/images/tbsindustry.png',
+          import.meta.url
+        ).href,
+        new URL(
+          '../assets/images/accurl.png',
+          import.meta.url
+        ).href,
+        new URL(
+          '../assets/images/laudis.png',
+          import.meta.url
+        ).href,
+        new URL(
+          '../assets/images/kickbite.png',
+          import.meta.url
+        ).href,
       ],
       partnerRef: null,
     };
